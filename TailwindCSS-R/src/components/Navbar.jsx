@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Menu, X, ChevronDown, Settings } from "lucide-react";
+import { Menu, X, ChevronDown, Settings, Link } from "lucide-react";
 import { getInitials } from "../utils/getInitials";
+import { Link as RouterLink } from "react-router-dom";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -25,21 +26,18 @@ export default function Navbar() {
 
           {/* DESKTOP MENU */}
           <nav className="hidden md:flex items-center gap-1 ml-2">
-            <div className="px-3 py-2 rounded-md text-sm font-medium bg-neutral-800 text-white">
-              Dashboard
-            </div>
-
             <div className="px-3 py-2 text-sm text-neutral-300 hover:bg-neutral-800 rounded">
-              Attendance
+              <RouterLink to="/student">Dashboard</RouterLink>
             </div>
-
             <div className="px-3 py-2 text-sm text-neutral-300 hover:bg-neutral-800 rounded">
-              Calendar
+              <RouterLink to="/attendance">Attendance</RouterLink>
             </div>
-
             <div className="px-3 py-2 text-sm text-neutral-300 hover:bg-neutral-800 rounded">
-              Chat
+              <RouterLink to="/calendar">Calendar</RouterLink>
             </div>
+            <div className="px-3 py-2 text-sm text-neutral-300 hover:bg-neutral-800 rounded">
+              <RouterLink to="/chat">Chat</RouterLink>
+            </div>  
 
             {/* MORE */}
             <div className="relative group">
@@ -50,19 +48,19 @@ export default function Navbar() {
               <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-150 absolute left-0 mt-2 w-48 rounded-lg border border-neutral-800 bg-neutral-900 shadow-xl">
                 <div className="p-2 space-y-1">
                   <div className="px-3 py-2 text-sm hover:bg-neutral-800 rounded">
-                    Semester Attendance
+                    <RouterLink to="/semester-attendance">Semester Attendance</RouterLink>
                   </div>
 
                   <div className="px-3 py-2 text-sm hover:bg-neutral-800 rounded">
-                    Feedback
+                    <RouterLink to="/feedback">Feedback</RouterLink>
                   </div>
 
                   <div className="px-3 py-2 text-sm hover:bg-neutral-800 rounded">
-                    Weekly Subject Feedback
+                    <RouterLink to="/weekly-feedback">Weekly Subject Feedback</RouterLink>
                   </div>
 
                   <div className="px-3 py-2 text-sm hover:bg-neutral-800 rounded">
-                    Apply Leave
+                    <RouterLink to="/apply-leave">Apply Leave</RouterLink>
                   </div>
                 </div>
               </div>
@@ -104,11 +102,11 @@ export default function Navbar() {
               {/* MENU */}
               <div className="p-2">
                 <div className="w-full text-left text-sm px-3 py-2 rounded-md text-neutral-200 hover:bg-neutral-800 cursor-pointer">
-                  View Profile
+                  <RouterLink to="/profile">View Profile</RouterLink>
                 </div>
 
                 <div className="w-full text-left text-sm px-3 py-2 rounded-md text-neutral-200 hover:bg-neutral-800 cursor-pointer">
-                  Logout
+                  <RouterLink to="/login">Logout</RouterLink>
                 </div>
               </div>
             </div>
@@ -128,41 +126,47 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden border-b border-neutral-800 bg-neutral-900/95 backdrop-blur px-4 sm:px-6 lg:px-8 py-3">
           <div className="max-w-7xl mx-auto flex flex-col gap-1">
-            <div className="px-3 py-2 bg-neutral-800 rounded">Dashboard</div>
-
             <div className="px-3 py-2 hover:bg-neutral-800 rounded">
-              Attendance
+              <RouterLink to="/student">Dashboard</RouterLink>
             </div>
 
             <div className="px-3 py-2 hover:bg-neutral-800 rounded">
-              Calendar
-            </div>
-
-            <div className="px-3 py-2 hover:bg-neutral-800 rounded">Chat</div>
-
-            <div className="px-3 py-2 hover:bg-neutral-800 rounded">
-              Semester Attendance
+              <RouterLink to="/attendance">Attendance</RouterLink>
             </div>
 
             <div className="px-3 py-2 hover:bg-neutral-800 rounded">
-              Feedback
+              <RouterLink to="/calendar">Calendar</RouterLink>
             </div>
 
             <div className="px-3 py-2 hover:bg-neutral-800 rounded">
-              Weekly Subject Feedback
+              <RouterLink to="/chat">Chat</RouterLink>
             </div>
 
             <div className="px-3 py-2 hover:bg-neutral-800 rounded">
-              Apply Leave
+              <RouterLink to="/semester-attendance">Semester Attendance</RouterLink>
+            </div>
+
+            <div className="px-3 py-2 hover:bg-neutral-800 rounded">
+              <RouterLink to="/feedback">Feedback</RouterLink>
+            </div>
+
+            <div className="px-3 py-2 hover:bg-neutral-800 rounded">
+              <RouterLink to="/weekly-feedback">Weekly Subject Feedback</RouterLink>
+            </div>
+
+            <div className="px-3 py-2 hover:bg-neutral-800 rounded">
+              <RouterLink to="/apply-leave">Apply Leave</RouterLink>
             </div>
 
             <div className="border-t border-neutral-800 my-2" />
 
             <div className="px-3 py-2 hover:bg-neutral-800 rounded">
-              View Profile
+              <RouterLink to="/profile">View Profile</RouterLink>
             </div>
 
-            <div className="px-3 py-2 hover:bg-neutral-800 rounded">Logout</div>
+            <div className="px-3 py-2 hover:bg-neutral-800 rounded">
+              <RouterLink to="/logout">Logout</RouterLink>
+            </div>
           </div>
         </div>
       )}
